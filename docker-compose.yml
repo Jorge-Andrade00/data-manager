@@ -7,24 +7,24 @@ services:
     environment:
       POSTGRES_USER: falp
       POSTGRES_PASSWORD: Falp@123
-      POSTGRES_DB: ms_user_manager
+      POSTGRES_DB: ms_data_manager
     ports:
       - "5432:5432"
 
-  user_manager:
-    build: .
-    depends_on:
-      - postgres
-    container_name: user_manager
-    environment:
-      NODE_ENV: development
-      APP_PREFIX: userManager
-      PORT: 3000
-      LOGGER_LOG_LEVEL: info
-      POSTGRE_HOST: postgres
-      POSTGRE_PORT: 5432
-      POSTGRE_USER: falp
-      POSTGRE_PASSWORD: Falp@123
-      POSTGRE_DB: ms_user_manager
-    ports:
-      - "3000:3000"
+  # data-manager:
+  #   build: .
+  #   depends_on:
+  #     - postgres
+  #   container_name: data-manager
+  #   environment:
+  #     NODE_ENV: development
+  #     APP_PREFIX: data-manager
+  #     PORT: 3000
+  #     LOGGER_LOG_LEVEL: info
+  #     POSTGRE_HOST: postgres
+  #     POSTGRE_PORT: 5432
+  #     POSTGRE_USER: falp
+  #     POSTGRE_PASSWORD: Falp@123
+  #     POSTGRE_DB: ms_data_manager
+  #   ports:
+  #     - "3000:3000"

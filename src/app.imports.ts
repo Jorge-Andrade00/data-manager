@@ -5,6 +5,8 @@ import { LoggerConfig } from './config/logger.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PostgreConfig } from './config/postgre.config';
 
+import { UsersModule } from './users/users.module';
+
 export const AppImports = [
   ConfigModule.forRoot({
     isGlobal: true,
@@ -21,4 +23,5 @@ export const AppImports = [
   }),
 
   //App modules
+  UsersModule,
 ];
