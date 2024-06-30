@@ -9,5 +9,5 @@ export const PostgreConfig = (config: ConfigService): TypeOrmModule => ({
   password: config.get('POSTGRE_PASSWORD'),
   database: config.get('POSTGRE_DB'),
   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-  synchronize: false,
+  synchronize: config.get('NODE_ENV') === 'development' ? true : false,
 });

@@ -1,19 +1,23 @@
-import { Column, Entity } from 'typeorm';
+import { Address } from '../../addresses/entities/address.entity';
+import { Column, Entity, OneToMany } from 'typeorm';
 
 @Entity()
 export class Users {
   @Column({ type: 'int', primary: true, generated: true })
-  private id: number;
+  id: number;
 
   @Column({ type: 'varchar', unique: true, nullable: false, length: 9 })
-  private rut: string;
+  rut: string;
 
   @Column({ type: 'varchar', nullable: false, length: 50 })
-  private name: string;
+  name: string;
 
   @Column({ type: 'varchar', nullable: true, length: 50 })
-  private firstSurname: string;
+  firstSurname: string;
 
   @Column({ type: 'varchar', nullable: true, length: 50 })
-  private secondSurname: string;
+  secondSurname: string;
+
+  @OneToMany(() => Address, (address) => address.user)
+  addresses: Address[];
 }

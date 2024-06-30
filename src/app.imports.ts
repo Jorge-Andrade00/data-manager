@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PostgreConfig } from './config/postgre.config';
 
 import { UsersModule } from './users/users.module';
+import { AddressesModule } from './addresses/addresses.module';
 
 export const AppImports = [
   ConfigModule.forRoot({
@@ -24,4 +25,5 @@ export const AppImports = [
 
   //App modules
   UsersModule,
+  AddressesModule,
 ];

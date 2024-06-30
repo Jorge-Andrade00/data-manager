@@ -10,13 +10,20 @@ export class UsersService {
     private readonly userRepository: Repository<Users>,
   ) {}
 
-  async create(createUserDto: {
+  async create(usarData: {
     rut: string;
     name: string;
     firstSurname?: string;
     secondSurname?: string;
   }): Promise<Users> {
-    return this.userRepository.save(createUserDto);
+    const user = new Users();
+
+    user.rut = usarData.rut;
+    user.name = usarData.name;
+    user.firstSurname = usarData.firstSurname;
+    user.secondSurname = usarData.secondSurname;
+
+    return this.userRepository.save(user);
   }
 
   async find(input: string): Promise<Users[]> {

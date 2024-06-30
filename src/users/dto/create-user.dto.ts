@@ -18,10 +18,10 @@ export class CreateUserDto {
   @IsString()
   @MaxLength(50)
   @Transform(({ value }) => value.toLowerCase())
-  firstSurname: string;
+  firstSurname?: string;
 
   @IsString()
   @MaxLength(50)
   @Transform(({ value }) => value.toLowerCase())
-  secondSurname: string;
+  secondSurname?: string;
 }
