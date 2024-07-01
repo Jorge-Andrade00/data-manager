@@ -15,7 +15,7 @@ export class Address {
   @Column({ type: 'varchar', nullable: false, length: 100 })
   city: string;
 
-  @ManyToOne(() => Users, (user) => user.addresses)
+  @ManyToOne(() => Users, (user) => user.addresses, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'userId' })
   user: Users;
 
